@@ -81,7 +81,7 @@
 
 &mmc1 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&mmc1_pins_a>;
+	pinctrl-0 = <&mmc1_pins>;
 	vmmc-supply = <&reg_vcc3v3>;
 	vqmmc-supply = <&reg_vcc3v3>;
 	mmc-pwrseq = <&wifi_pwrseq>;
@@ -97,4 +97,11 @@
 		interrupts = <6 10 IRQ_TYPE_LEVEL_HIGH>; /* PG10 / EINT10 */
 		interrupt-names = "host-wake";
 	};
+};
+
+&r_pio {
+	wifi_en_npi: wifi_en_pin {
+		pins = "PL7";
+		function = "gpio_out";
+    };
 };
